@@ -9,6 +9,8 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: nowrap;
+    gap: 10px;
 }
 
 body {
@@ -61,16 +63,21 @@ input:focus {
     font-weight: 700;
     color: #111827;
     transition: 0.3s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 [data-testid="test-todo-priority"] {
     display: inline-block;
     font-size: 12px;
     font-weight: 600;
-    padding: 4px 10px;
+    padding: 4px 14px;
     border-radius: 999px;
     background: #fee2e2;
     color: #b91c1c;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 [data-testid="test-todo-description"] {
@@ -107,10 +114,11 @@ time {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 11px;
+    font-size: 10px;
     margin-right: 6px;
     border-radius: 50%;
     background: #facc15;
+    transition: all 0.2s ease;
 }
 
 [data-testid="test-todo-status"].done-status::before {
@@ -148,25 +156,29 @@ label {
     justify-content: center;
     align-items: center;
     gap: 6px;
-    width: 80px;
+    width: 90px;
     padding: 6px 10px;
     border-radius: 999px;
     font-weight: 500;
+    border: 1px solid transparent;
 }
 
 [data-testid="test-todo-tag-work"] {
     background: #e0f2fe;
     color: #0369a1;
+    border-color: #0284c7;
 }
 
 [data-testid="test-todo-tag-urgent"] {
     background: #fee2e2;
     color: #b91c1c;
+    border-color: #dc2626;
 }
 
 [data-testid="test-todo-tag-design"] {
     background: #f3e8ff;
     color: #7e22ce;
+    border-color: #9333ea;
 }
 
 footer button {
