@@ -13,7 +13,7 @@
     // function to update time remaining
     function updateTimeRemaining() {
     // new Date(Year, month, day, Hour, Minute, Second);
-    const dueDate = new Date(2026, 3, 16, 18, 0, 0);
+    const dueDate = new Date(2026, 3, 11, 18, 47, 0);
     // April = 3 because of Javascript 0-based indexing
     const now = new Date();
 
