@@ -6,8 +6,6 @@ This project is an interactive, stateful Todo Card component built as part of th
 
 The goal was to simulate a real-world UI component with proper state handling, responsive design, and accessibility best practices — without turning it into a full application.
 
-⸻
-
 ✨ What Changed from Stage 0
 
 Stage 0 focused on a static Todo Card layout. In Stage 1a, the following major enhancements were introduced:
@@ -23,8 +21,6 @@ Stage 0 focused on a static Todo Card layout. In Stage 1a, the following major e
    • Changes reflect immediately on save
    • Cancel restores previous state
 
-⸻
-
 2. 🔄 Status Management System
    • Introduced controlled status system:
    • Pending
@@ -35,15 +31,11 @@ Stage 0 focused on a static Todo Card layout. In Stage 1a, the following major e
    • Status display badge
    • Status dropdown control
 
-⸻
-
 3. 🎯 Expand / Collapse Description
    • Long descriptions are automatically truncated
    • “Show more / Show less” toggle implemented
    • Collapsible section improves readability
    • Accessibility added using aria-expanded and aria-controls
-
-⸻
 
 4. ⏱️ Smart Time Tracking
    • Live countdown to due date:
@@ -53,8 +45,6 @@ Stage 0 focused on a static Todo Card layout. In Stage 1a, the following major e
    • Automatically stops when task is marked “Done”
    • Shows “Completed” state when finished
 
-⸻
-
 5. 🎨 Priority Visualization Upgrade
    • Priority now has both:
    • Text badge
@@ -63,8 +53,6 @@ Stage 0 focused on a static Todo Card layout. In Stage 1a, the following major e
    • Low → Green
    • Medium → Yellow
    • High → Red
-
-⸻
 
 6. ♿ Accessibility Improvements
    • Added proper labels for all form fields
@@ -82,8 +70,6 @@ Stage 0 focused on a static Todo Card layout. In Stage 1a, the following major e
 
 The app was intentionally kept as a single reusable component, not a full todo system, to match the task scope and improve focus on UI behavior.
 
-⸻
-
 2. Edit Mode as Full State Switch
 
 Instead of inline editing, the design uses a full view/edit toggle system:
@@ -92,8 +78,6 @@ Instead of inline editing, the design uses a full view/edit toggle system:
 
 This avoids layout confusion and improves usability.
 
-⸻
-
 3. Description Truncation Logic
 
 Descriptions longer than 120 characters are automatically truncated with:
@@ -101,8 +85,6 @@ Descriptions longer than 120 characters are automatically truncated with:
 • Full reveal on expansion
 
 This keeps UI compact and readable.
-
-⸻
 
 4. Manual State Synchronization
 
@@ -113,8 +95,6 @@ Instead of frameworks, all state is handled manually using:
 
 This was intentional to demonstrate raw frontend logic understanding.
 
-⸻
-
 5. Priority Indicator Separation
 
 Priority is split into:
@@ -123,16 +103,12 @@ Priority is split into:
 
 This improves clarity and aligns with modern UI patterns.
 
-⸻
-
 ⚠️ Known Limitations
 • No backend persistence (data resets on refresh)
 • No animation transitions for edit mode switching
 • Focus trap is optional and not fully enforced in all edge cases
 • Time updates run at 60s interval (not real-time seconds)
 • No multi-task support (single card only by design)
-
-⸻
 
 ♿ Accessibility Notes
 
@@ -151,8 +127,6 @@ Partially Implemented / Optional
 • Focus trapping in edit mode (optional enhancement)
 • Full ARIA dialog pattern not implemented for edit form
 
-⸻
-
 📱 Responsiveness
 
 The UI is fully responsive across:
@@ -167,27 +141,19 @@ Responsive behaviors:
 • Long text does not break layout
 • Form fields stack vertically on mobile
 
-⸻
-
 🛠️ Tech Stack
 • HTML5
 • CSS3 (Flexbox + Responsive design)
 • Vanilla JavaScript (DOM manipulation)
 • No frameworks or libraries
 
-⸻
-
 🚀 Live Demo
 
 Add your deployed link here
 
-⸻
-
 📂 Repository
 
-Add your GitHub repo link here
-
-⸻
+https://github.com/Precious-Odion/Todo-Card-HNG-Stage-0
 
 📌 Summary
 
