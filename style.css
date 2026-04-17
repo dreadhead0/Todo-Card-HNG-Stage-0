@@ -249,7 +249,7 @@ button:hover {
 
 .status-pending::before {
     background: #dc2626; 
-    content: "▪";
+    content: "◦";
     font-size: 15px;
 }
 
