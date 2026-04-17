@@ -1,230 +1,199 @@
-# 🚀 HNG Stage 0 – Testable Todo Item Card
+🚀 Advanced Todo Card (Stage 1a – HNG Frontend Track)
 
-## 📌 Overview
+📌 Overview
 
-This project is a **clean, modern, and accessible Todo Task Card component** built as part of the **HNG Frontend Internship – Stage 0 task**.
+This project is an interactive, stateful Todo Card component built as part of the HNG Stage 1a frontend task. It extends a basic static Todo Card (Stage 0) into a more dynamic UI with editing capabilities, status management, priority visualization, time tracking, and accessibility improvements.
 
-The goal of this task is to demonstrate strong fundamentals in:
+The goal was to simulate a real-world UI component with proper state handling, responsive design, and accessibility best practices — without turning it into a full application.
 
-- Semantic HTML
-- Responsive design
-- Accessibility (a11y)
-- Testability using `data-testid`
-- Basic JavaScript interactivity
+⸻
 
----
+✨ What Changed from Stage 0
 
-## 🎯 Objective
+Stage 0 focused on a static Todo Card layout. In Stage 1a, the following major enhancements were introduced:
 
-Build a **testable Todo Card UI component** that:
+1. 📝 Editable Todo Content
+   • Added full edit mode UI
+   • Users can edit:
+   • Title
+   • Description
+   • Priority
+   • Status
+   • Due date
+   • Changes reflect immediately on save
+   • Cancel restores previous state
 
-- Displays task information clearly
-- Is accessible to all users
-- Works across different screen sizes
-- Passes automated tests using exact `data-testid` attributes
+⸻
 
----
+2. 🔄 Status Management System
+   • Introduced controlled status system:
+   • Pending
+   • In Progress
+   • Done
+   • Status is now synchronized across:
+   • Checkbox
+   • Status display badge
+   • Status dropdown control
 
-## ✨ Features
+⸻
 
-### 🧩 Core UI Elements
+3. 🎯 Expand / Collapse Description
+   • Long descriptions are automatically truncated
+   • “Show more / Show less” toggle implemented
+   • Collapsible section improves readability
+   • Accessibility added using aria-expanded and aria-controls
 
-- Task Title
-- Task Description
-- Priority Indicator (High, Medium, Low)
-- Due Date
-- Dynamic Time Remaining
-- Status Indicator (Pending / Done)
-- Completion Toggle (Checkbox)
-- Tags (Work, Urgent, Design)
-- Edit & Delete Buttons
+⸻
 
----
+4. ⏱️ Smart Time Tracking
+   • Live countdown to due date:
+   • “Due in X minutes/hours/days”
+   • “Overdue by X time”
+   • Updates every minute
+   • Automatically stops when task is marked “Done”
+   • Shows “Completed” state when finished
 
-### ⏱ Dynamic Time System
+⸻
 
-- Calculates time remaining relative to a fixed due date
-- Displays human-readable output such as:
-  - `Due in 2 days 4 hours`
-  - `Due tomorrow`
-  - `Due in 45 minutes`
-  - `Overdue by 1 day 2 hours`
+5. 🎨 Priority Visualization Upgrade
+   • Priority now has both:
+   • Text badge
+   • Colored indicator dot
+   • Visual states:
+   • Low → Green
+   • Medium → Yellow
+   • High → Red
 
-- Automatically updates every 60 seconds using `setInterval`
+⸻
 
----
+6. ♿ Accessibility Improvements
+   • Added proper labels for all form fields
+   • Keyboard navigation support improved
+   • Expand toggle includes:
+   • aria-expanded
+   • aria-controls
+   • Time updates use aria-live="polite"
 
-### ✅ Interactive Behaviour
+⸻
 
-- Checkbox toggles task completion
-- Updates UI in real-time:
-  - Strikes through task title
-  - Changes status from **Pending → Done**
-  - Updates status indicator visually
+🧠 New Design Decisions
 
-- Edit button logs action to console
-- Delete button triggers confirmation + alert
+1. Single Card Architecture
 
----
+The app was intentionally kept as a single reusable component, not a full todo system, to match the task scope and improve focus on UI behavior.
 
-### 🎨 UI & Design
+⸻
 
-- Clean, modern card layout
-- Soft shadows and rounded corners
-- Responsive across devices (320px → 1200px)
-- Tag pills with custom colors and borders
-- Smooth hover and transition effects
+2. Edit Mode as Full State Switch
 
----
+Instead of inline editing, the design uses a full view/edit toggle system:
+• View mode = clean card UI
+• Edit mode = form-driven state
 
-### ♿ Accessibility (A11y)
+This avoids layout confusion and improves usability.
 
-- Semantic HTML structure (`article`, `header`, `section`, `footer`)
-- Proper form labeling (`input + label`)
-- `aria-label` used where necessary
-- Keyboard navigable (Tab support)
-- Visible focus states
-- Live updates supported via `aria-live="polite"`
+⸻
 
----
+3. Description Truncation Logic
 
-### 🧪 Testability
+Descriptions longer than 120 characters are automatically truncated with:
+• "..." indicator in collapsed mode
+• Full reveal on expansion
 
-All required elements include exact `data-testid` attributes for automated testing:
+This keeps UI compact and readable.
 
-| Element        | data-testid                 |
-| -------------- | --------------------------- |
-| Card Container | `test-todo-card`            |
-| Title          | `test-todo-title`           |
-| Description    | `test-todo-description`     |
-| Priority       | `test-todo-priority`        |
-| Due Date       | `test-todo-due-date`        |
-| Time Remaining | `test-todo-time-remaining`  |
-| Status         | `test-todo-status`          |
-| Checkbox       | `test-todo-complete-toggle` |
-| Tags List      | `test-todo-tags`            |
-| Edit Button    | `test-todo-edit-button`     |
-| Delete Button  | `test-todo-delete-button`   |
+⸻
 
----
+4. Manual State Synchronization
 
-## 🛠 Tech Stack
+Instead of frameworks, all state is handled manually using:
+• DOM queries
+• Central update functions
+• Explicit UI sync functions
 
-- **HTML5** – Semantic structure
-- **CSS3** – Styling, layout, responsiveness
-- **Vanilla JavaScript (ES6)** – Interactivity & logic
+This was intentional to demonstrate raw frontend logic understanding.
 
----
+⸻
 
-## 📱 Responsiveness
+5. Priority Indicator Separation
 
-- Mobile-first design
-- Fully responsive from **320px to 1200px**
-- No horizontal overflow
-- Adaptive layout for smaller screens
+Priority is split into:
+• Text badge (semantic label)
+• Colored dot indicator (visual cue)
 
----
+This improves clarity and aligns with modern UI patterns.
 
-## 🧠 Key Implementation Details
+⸻
 
-### 📅 Date Handling
+⚠️ Known Limitations
+• No backend persistence (data resets on refresh)
+• No animation transitions for edit mode switching
+• Focus trap is optional and not fully enforced in all edge cases
+• Time updates run at 60s interval (not real-time seconds)
+• No multi-task support (single card only by design)
 
-- Uses JavaScript `Date` object with local time:
+⸻
 
-```js
-new Date(2026, 3, 16, 6, 0, 0);
-```
+♿ Accessibility Notes
 
-> Note: Month is 0-based (April = 3)
+The project includes several accessibility considerations:
 
----
+Implemented
+• Labels properly associated with form fields (label for)
+• Expand/collapse uses:
+• aria-expanded
+• aria-controls
+• Status dropdown has accessible name
+• aria-live="polite" used for time updates
+• Keyboard navigation supported across interactive elements
 
-### ⏳ Time Calculation Logic
+Partially Implemented / Optional
+• Focus trapping in edit mode (optional enhancement)
+• Full ARIA dialog pattern not implemented for edit form
 
-- Converts milliseconds into:
-  - Days
-  - Hours
-  - Minutes
+⸻
 
-- Outputs readable strings with correct pluralization
+📱 Responsiveness
 
----
+The UI is fully responsive across:
+• 📱 Mobile (320px)
+• 📟 Tablet (768px)
+• 💻 Desktop (1024px+)
 
-### 🔄 Live Updates
+Responsive behaviors:
+• Card adapts to screen width
+• Buttons stack on smaller screens
+• Tags wrap naturally
+• Long text does not break layout
+• Form fields stack vertically on mobile
 
-```js
-setInterval(updateTimeRemaining, 60000);
-```
+⸻
 
-Ensures time display remains accurate.
+🛠️ Tech Stack
+• HTML5
+• CSS3 (Flexbox + Responsive design)
+• Vanilla JavaScript (DOM manipulation)
+• No frameworks or libraries
 
----
+⸻
 
-## 🚀 Live Demo
+🚀 Live Demo
 
-👉 [View Live Project](#)
-_(todo-card-hng-stage-0-production.up.railway.app)_
+Add your deployed link here
 
----
+⸻
 
-## 📂 Repository
+📂 Repository
 
-👉 [GitHub Repository](#)
-_(https://github.com/Precious-Odion/Todo-Card-HNG-Stage-0)_
+Add your GitHub repo link here
 
----
+⸻
 
-## 🧪 How to Run Locally
+📌 Summary
 
-```bash
-git clone <https://github.com/Precious-Odion/Todo-Card-HNG-Stage-0>
-open index.html
-```
-
----
-
-## 📋 Acceptance Criteria (Met ✅)
-
-- ✔ All required `data-testid` attributes present
-- ✔ Accessible and keyboard navigable
-- ✔ Responsive layout (320px–1200px)
-- ✔ Semantic HTML used correctly
-- ✔ Functional checkbox toggle
-- ✔ Time remaining updates correctly
-- ✔ Edit & Delete buttons implemented
-- ✔ No layout overflow or breaking
-
----
-
-## 💡 Future Improvements
-
-- Add multiple todo cards dynamically
-- Implement edit functionality (modal/form)
-- Persist data using Local Storage
-- Add animations for better UX
-
----
-
-## 🙌 Acknowledgment
-
-Built as part of the **HNG Internship Program (Frontend Track)**.
-
----
-
-## 📅 Deadline
-
-**April 16, 2026**
-
----
-
-## 👤 Author
-
-**Precious Odion**
-
----
-
-## ⭐ Final Note
-
-This project focuses on **clarity, accessibility, and testability**, ensuring it meets both **user experience standards** and **automated evaluation requirements**.
-
----
+This project demonstrates:
+• Strong DOM manipulation skills
+• Manual state management
+• Accessibility awareness
+• Responsive UI design
+• Real-world component thinking

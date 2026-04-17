@@ -17,16 +17,32 @@
                     <h2 data-testid="test-todo-title">
                         Complete HNG Frontend Task
                     </h2>
-
+                    
+                    <div class="priority-group">
+                    <span data-testid="test-todo-priority-indicator"></span>
                     <span data-testid="test-todo-priority" aria-label="High Priority">
-                        🔴 High
+                        High
                     </span>
+                    </div>
                 </header>
 
                 <!--Description-->
+                <div 
+                    data-testid="test-todo-collapsible-section" 
+                    id="desc-section"
+                >
                 <p data-testid="test-todo-description">
-                    Build a clean, accesible, and responsive Todo Card component using HTML, CSS AND JavaScript.
+                Build a clean, accessible, and responsive Todo Card component. This component should support editing, priority levels, time tracking, status transitions, expand and collapse behavior, accessibility features, and responsive design across devices. Ensure the UI remains clean and usable even when the content becomes very long and complex.
                 </p>
+                </div>
+
+                <button 
+                data-testid="test-todo-expand-toggle"
+                aria-expanded="false"
+                aria-controls="desc-section"
+                >
+                Show more
+                </button>
 
                 <!--Dates-->
                 <section>
@@ -37,12 +53,18 @@
                         </time>
                     </p>
 
+                    <span data-testid="test-todo-overdue-indicator"></span>
+
                     <p data-testid="test-todo-time-remaining" aria-live="polite"></p>
                 </section>
 
                 <!-- Status + Checkbox-->
                 <section>
-                    <span data-testid="test-todo-status" aria-label="Task status">
+                    <span 
+                    data-testid="test-todo-status" 
+                    aria-label="Task status"
+                    tabindex="0"
+                    >
                         Pending
                     </span>
 
@@ -79,6 +101,52 @@
                   </footer>
 
             </article>
+
+            <!-- Edit Form (Hidden initially)-->
+            <form data-testid="test-todo-edit-form" style="display: none;">
+
+                <label for="title-input">Title:</label>
+                <textarea id="title-input" data-testid="test-todo-edit-title-input"></textarea>
+
+                <label for="description-input">
+                    Description:
+
+                    <div class="desc-wrapper">
+        
+                        <textarea id="description-input" data-testid="test-todo-edit-description-input" class="desc-box"></textarea>
+
+                    </div>
+                </label>
+
+                <label>
+                    Priority:
+                    <select data-testid="test-todo-edit-priority-select">
+                        <option value="Low">🟢Low</option>
+                        <option value="Medium">🟡Medium</option>
+                        <option value="High">🔴High</option>
+                    </select>
+                </label>
+
+                <label>
+                    Status:
+                    <select data-testid="test-todo-status-control" aria-label="Task status">
+                    <option value="Pending">Pending</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Done">Done</option>
+                </select>
+                </label>
+
+                <label>
+                    Due Date:
+                    <input type="datetime-local" data-testid="test-todo-edit-due-date-input" />
+                </label>
+
+                <div>
+                    <button type="button" data-testid="test-todo-save-button">Save</button>
+                    <button type="button" data-testid="test-todo-cancel-button">Cancel</button>
+                </div>
+
+            </form>
         </main>
     <script src="script.js"></script> 
     </body>
